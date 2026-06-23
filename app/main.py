@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 
 from app.config import settings
-from app.demo_prompts import DEMO_PROMPTS, get_demo_instruction
+from app.demo_prompts import DEMO_HELP_PURPOSE, get_demo_instruction
 from app.gemini_live import create_live_ephemeral_token
 
 app = FastAPI(title="VN Clinic AI Voice API", version="1.0.0")
@@ -29,7 +29,7 @@ def health():
         "status": "ok",
         "service": "vnclinic-voice-api",
         "gemini_configured": bool(settings.gemini_api_key),
-        "demos": list(DEMO_PROMPTS.keys()),
+        "demos": list(DEMO_HELP_PURPOSE.keys()),
     }
 
 

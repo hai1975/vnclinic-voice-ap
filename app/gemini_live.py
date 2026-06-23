@@ -40,7 +40,8 @@ def _build_complete_demo_tool() -> types.Tool:
     )
 
 
-def create_live_ephemeral_token(system_instruction: str) -> dict:    if not settings.gemini_api_key:
+def create_live_ephemeral_token(system_instruction: str) -> dict:
+    if not settings.gemini_api_key:
         raise HTTPException(
             status_code=503,
             detail="GEMINI_API_KEY is not configured on the server",
